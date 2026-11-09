@@ -1,1 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nandalur Connect | Your Village, Your World</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f5f8fc;
+  color: #14243a;
+}
+
+header {
+  background: #102b4e;
+  color: white;
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #e8bd66;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 14px;
+}
+
+.hero {
+  text-align: center;
+  padding: 75px 20px;
+  background: linear-gradient(135deg,#102b4e,#23649a);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.hero h1 span {
+  color: #e8bd66;
+}
+
+.hero p {
+  color: #e0eaf5;
+  margin-bottom: 28px;
+}
+
+.search {
+  max-width: 550px;
+  margin: auto;
+  display: flex;
+  background: white;
+  padding: 6px;
+  border-radius: 12px;
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  padding: 13px;
+  font-size: 15px;
+}
+
+.search button {
+  background: #e8bd66;
+  border: none;
+  padding: 13px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+section {
+  padding: 45px 7%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 27px;
+  color: #102b4e;
+}
+
+.section-title p {
+  color: #718096;
+  margin-top: 8px;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+  gap: 17px;
+}
+
+.category {
+  background: white;
+  padding: 25px 12px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 5px 18px #102b4e12;
+  border: 1px solid #e8edf4;
+  transition: 0.2s;
+}
+
+.category:hover {
+  transform: translateY(-5px);
+}
+
+.category .icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.category h3 {
+  font-size: 15px;
+}
+
+.join {
+  text-align: center;
+  background: #eaf1f9;
+  border-radius: 18px;
+  padding: 35px 20px;
+}
+
+.join button {
+  margin-top: 20px;
+  background: #102b4e;
+  color: white;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 9px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+footer {
+  background: #102b4e;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-size: 13px;
+}
+
+footer span {
+  color: #e8bd66;
+}
+
+@media(max-width:600px) {
+  header {
+    justify-content: center;
+    text-align: center;
+  }
+  nav a {
+    margin: 0 7px;
+  }
+  .hero h1 {
+    font-size: 29px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">NANDALUR <span>CONNECT.</span></div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#categories">Explore</a>
+    <a href="#join">Add Shop</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Your Village, <span>Your World.</span></h1>
+  <p>Discover shops, services and local businesses in Nandalur.</p>
+
+  <div class="search">
+    <input id="searchInput" type="text"
+      placeholder="Search shops or services...">
+    <button onclick="searchShops()">Search</button>
+  </div>
+</div>
+
+<section id="categories">
+  <div class="section-title">
+    <h2>Explore Local Businesses</h2>
+    <p>Everything around your village, in one place.</p>
+  </div>
+
+  <div class="categories">
+    <div class="category"><div class="icon">🛒</div><h3>Grocery</h3></div>
+    <div class="category"><div class="icon">👕</div><h3>Clothing</h3></div>
+    <div class="category"><div class="icon">📱</div><h3>Mobile Shops</h3></div>
+    <div class="category"><div class="icon">🍔</div><h3>Restaurants</h3></div>
+    <div class="category"><div class="icon">💊</div><h3>Medical</h3></div>
+    <div class="category"><div class="icon">🔧</div><h3>Services</h3></div>
+  </div>
+</section>
+
+<section id="join">
+  <div class="join">
+    <h2>Own a Shop in Nandalur?</h2>
+    <p>Bring your business online and help local customers find you.</p>
+    <button onclick="alert('Shop registration coming soon!')">
+      Add Your Shop
+    </button>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <span>Nandalur Connect</span>. Built for our community.</p>
+  <p style="margin-top:8px;">Your Village. Your Businesses.</p>
+</footer>
+
+<script>
+function searchShops() {
+  const query = document.getElementById("searchInput").value.trim();
+
+  if (!query) {
+    alert("Please enter a shop or service name.");
+    return;
+  }
+
+  alert("Shop search system will be connected soon!");
+}
+</script>
+
+</body>
+</html>
+
 
