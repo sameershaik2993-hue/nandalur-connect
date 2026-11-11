@@ -228,9 +228,27 @@ footer span {
   <div class="join">
     <h2>Own a Shop in Nandalur?</h2>
     <p>Bring your business online and help local customers find you.</p>
-    <button onclick="alert('Shop registration coming soon!')">
-      Add Your Shop
-    </button>
+<button onclick="document.getElementById('shopForm').style.display='block'">
+  Add Your Shop
+</button>
+
+<form id="shopForm" style="display:none; margin-top:20px;">
+  <h2>Register Your Shop</h2>
+
+  <input type="text" id="shop_name" placeholder="Shop Name" required>
+
+  <input type="text" id="owner_name" placeholder="Owner Name" required>
+
+  <input type="tel" id="phone" placeholder="Phone Number" required>
+
+  <input type="text" id="category" placeholder="Shop Category" required>
+
+  <input type="text" id="address" placeholder="Shop Address" required>
+
+  <textarea id="description" placeholder="Shop Description"></textarea>
+
+  <button type="button" onclick="submitShop()">Register Shop</button>
+</form>
   </div>
 </section>
 
@@ -242,6 +260,45 @@ footer span {
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>  
   
 <script>
+const SUPABASE_URL = "https://xknpjgtcvqouwsgugxlu.supabase.co;
+const SUPABASE_ANON_KEY = "sb_publishable_G6l9fOv7h1O0gsgQWeZXKQ_IMFEh3WB";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY
+);
+
+async function submitShop() {
+  const shop = {
+    shop_name: document.getElementById("shop_name").value.trim(),
+    owner_name: document.getElementById("owner_name").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    category: document.getElementById("category").value.trim(),
+    address: document.getElementById("address").value.trim(),
+    description: document.getElementById("description").value.trim(),
+    is_approved: false
+  };
+
+  if (!shop.shop_name || !shop.owner_name ||
+      !shop.phone || !shop.category || !shop.address) {
+    alert("Please fill all required fields.");
+    return;
+  }
+
+  const { error } = await supabaseClient
+    .from("shops")
+    .insert([shop]);
+
+  if (error) {
+    alert("Registration failed. Please try again.");
+    console.error(error);
+    return;
+  }
+
+  alert("Shop registration submitted successfully!");
+  document.getElementById("shopForm").reset();
+  document.getElementById("shopForm").style.display = "none";
+}
 function searchShops() {
   const query = document.getElementById("searchInput").value.trim();
 
