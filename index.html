@@ -290,7 +290,7 @@ async function submitShop() {
     .insert([shop]);
 
   if (error) {
-    alert("Registration failed. Please try again.");
+    alert("Registration failed: " + error.message);
     console.error(error);
     return;
   }
