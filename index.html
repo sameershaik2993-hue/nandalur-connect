@@ -299,6 +299,7 @@ const supabaseClient = window.supabase.createClient(
 
   data.forEach(shop => {
     const card = document.createElement("div");
+    card.className = "shop-card";
     card.style.cssText =
       "background:white;padding:18px;margin:12px auto;border-radius:12px;max-width:400px;box-shadow:0 2px 10px #ddd;text-align:left;";
 
@@ -351,22 +352,28 @@ async function submitShop() {
   document.getElementById("shopForm").style.display = "none";
 }
 function searchShops() {
+  const query = document
+    .getElementById("searchInput")
+    .value.trim().toLowerCase();
 
-  const query = document.getElementById("searchInput").value.trim().toLowerCase();
   const container = document.getElementById("approvedShops");
+  const cards = container.querySelectorAll(".shop-card");
 
   if (!query) {
+    cards.forEach(card => {
+      card.style.display = "block";
+    });
     alert("Please enter a shop or service name.");
-    loadApprovedShops();
     return;
   }
 
-  const cards = container.querySelectorAll("div");
   let found = 0;
 
   cards.forEach(card => {
     const match = card.textContent.toLowerCase().includes(query);
-    card.style.display = match ? "" : "none";
+
+    card.style.display = match ? "block" : "none";
+
     if (match) found++;
   });
 
