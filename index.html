@@ -204,7 +204,7 @@ footer span {
   <div class="search">
     <input id="searchInput" type="text"
       placeholder="Search shops or services...">
-    <button onclick="alert('Button Click Working')">Search</button>
+    <button onclick="searchShops()">Search</button>
   </div>
 </div>
 
@@ -381,8 +381,8 @@ function searchShops() {
     alert("No matching approved shops found.");
   }
 }
-
-</script>
+  
+window.searchShops = searchShops;</script>
 
 </body>
 </html>
