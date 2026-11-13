@@ -351,26 +351,21 @@ async function submitShop() {
   document.getElementById("shopForm").style.display = "none";
 }
 function searchShops() {
-  const query = document
-    .getElementById("searchInput")
-    .value.trim()
-    .toLowerCase();
-
+  const query = document.getElementById("searchInput").value.trim().toLowerCase();
   const container = document.getElementById("approvedShops");
-  const cards = container.children;
 
   if (!query) {
     alert("Please enter a shop or service name.");
+    loadApprovedShops();
     return;
   }
 
+  const cards = container.querySelectorAll("div");
   let found = 0;
 
-  Array.from(cards).forEach(card => {
+  cards.forEach(card => {
     const match = card.textContent.toLowerCase().includes(query);
-
-    card.style.display = match ? "block" : "none";
-
+    card.style.display = match ? "" : "none";
     if (match) found++;
   });
 
@@ -378,6 +373,7 @@ function searchShops() {
     alert("No matching approved shops found.");
   }
 }
+
 </script>
 
 </body>
