@@ -4,373 +4,48 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nandalur Connect | Your Village, Your World</title>
-
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Arial, sans-serif;
-}
-
-body {
-  background: #f5f8fc;
-  color: #14243a;
-  scroll-behavior: smooth;
-}
-
-header {
-  background: #102b4e;
-  color: white;
-  padding: 18px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.logo {
-  font-size: 22px;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-}
-
-.logo span {
-  color: #e8bd66;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 18px;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-nav a:hover {
-  color: #e8bd66;
-}
-
-.hero {
-  text-align: center;
-  padding: 70px 20px;
-  background: linear-gradient(135deg, #102b4e, #23649a);
-  color: white;
-}
-
-.hero h1 {
-  font-size: 38px;
-  margin-bottom: 12px;
-}
-
-.hero h1 span {
-  color: #e8bd66;
-}
-
-.hero p {
-  color: #e0eaf5;
-  margin-bottom: 28px;
-  font-size: 16px;
-}
-
-.search {
-  max-width: 550px;
-  margin: auto;
-  display: flex;
-  background: white;
-  padding: 6px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.search input {
-  flex: 1;
-  min-width: 0;
-  border: none;
-  outline: none;
-  padding: 12px 15px;
-  font-size: 15px;
-}
-
-.search button {
-  background: #e8bd66;
-  color: #102b4e;
-  border: none;
-  padding: 12px 22px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.search button:hover {
-  background: #d9ac52;
-}
-
-section {
-  padding: 50px 7%;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.section-title h2 {
-  font-size: 27px;
-  color: #102b4e;
-}
-
-.section-title p {
-  color: #718096;
-  margin-top: 8px;
-}
-
-.categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
-  gap: 16px;
-}
-
-.category {
-  background: white;
-  padding: 24px 12px;
-  text-align: center;
-  border-radius: 15px;
-  box-shadow: 0 5px 18px #102b4e10;
-  border: 1px solid #e8edf4;
-  transition: 0.2s;
-  cursor: pointer;
-}
-
-.category:hover {
-  transform: translateY(-5px);
-  border-color: #23649a;
-}
-
-.category .icon {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.category h3 {
-  font-size: 15px;
-  color: #102b4e;
-}
-
-/* Shops Grid */
-.shops-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.shop-card {
-  background: white;
-  padding: 22px;
-  border-radius: 14px;
-  box-shadow: 0 4px 15px rgba(16, 43, 78, 0.08);
-  border: 1px solid #e8edf4;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.shop-badge {
-  display: inline-block;
-  background: #eaf1f9;
-  color: #23649a;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin-bottom: 10px;
-  width: fit-content;
-}
-
-.shop-card h3 {
-  font-size: 19px;
-  color: #102b4e;
-  margin-bottom: 6px;
-}
-
-.shop-address {
-  font-size: 13px;
-  color: #718096;
-  margin-bottom: 10px;
-}
-
-.shop-desc {
-  font-size: 14px;
-  color: #4a5568;
-  line-height: 1.5;
-  margin-bottom: 16px;
-}
-
-.call-btn {
-  display: inline-block;
-  text-align: center;
-  background: #102b4e;
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: bold;
-  transition: 0.2s;
-}
-
-.call-btn:hover {
-  background: #23649a;
-}
-
-/* Join & Form Styling */
-.join {
-  text-align: center;
-  background: #eaf1f9;
-  border-radius: 18px;
-  padding: 40px 20px;
-  max-width: 750px;
-  margin: auto;
-}
-
-.join h2 {
-  color: #102b4e;
-  margin-bottom: 8px;
-}
-
-.primary-btn {
-  margin-top: 18px;
-  background: #102b4e;
-  color: white;
-  padding: 14px 28px;
-  border: none;
-  border-radius: 9px;
-  font-weight: bold;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.primary-btn:hover {
-  background: #23649a;
-}
-
-#shopForm {
-  display: none;
-  max-width: 480px;
-  margin: 25px auto 0;
-  background: white;
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-  text-align: left;
-}
-
-#shopForm h3 {
-  margin-bottom: 15px;
-  color: #102b4e;
-  text-align: center;
-}
-
-#shopForm input,
-#shopForm select,
-#shopForm textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
-  border: 1px solid #cbd5e0;
-  border-radius: 8px;
-  font-size: 14px;
-  outline: none;
-}
-
-#shopForm input:focus,
-#shopForm select:focus,
-#shopForm textarea:focus {
-  border-color: #23649a;
-}
-
-#shopForm textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-#shopForm button {
-  width: 100%;
-  background: #e8bd66;
-  color: #102b4e;
-  padding: 13px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-footer {
-  background: #102b4e;
-  color: white;
-  text-align: center;
-  padding: 25px;
-  font-size: 13px;
-  margin-top: 30px;
-}
-
-footer span {
-  color: #e8bd66;
-}
-
-@media(max-width:600px) {
-  header {
-    justify-content: center;
-    text-align: center;
-  }
-  nav a {
-    margin: 0 8px;
-  }
-  .hero h1 {
-    font-size: 28px;
-  }
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#f5f8fc;color:#14243a;scroll-behavior:smooth}
+header{background:#102b4e;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px;position:sticky;top:0;z-index:100}
+.logo{font-size:22px;font-weight:bold;letter-spacing:.5px}.logo span{color:#e8bd66}
+nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:white;text-decoration:none;font-size:14px;font-weight:500}nav a:hover{color:#e8bd66}
+.hero{text-align:center;padding:70px 20px;background:linear-gradient(135deg,#102b4e,#23649a);color:white}
+.hero h1{font-size:38px;margin-bottom:12px}.hero h1 span{color:#e8bd66}.hero p{color:#e0eaf5;margin-bottom:28px;font-size:16px}
+.search{max-width:550px;margin:auto;display:flex;background:white;padding:6px;border-radius:12px;box-shadow:0 8px 20px #0002}
+.search input{flex:1;min-width:0;border:none;outline:none;padding:12px 15px;font-size:15px}.search button{background:#e8bd66;color:#102b4e;border:none;padding:12px 22px;border-radius:8px;font-weight:bold;cursor:pointer}
+.search button:hover{background:#d9ac52}
+section{padding:50px 7%}.section-title{text-align:center;margin-bottom:30px}.section-title h2{font-size:27px;color:#102b4e}.section-title p{color:#718096;margin-top:8px}
+.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:16px}.category{background:white;padding:24px 12px;text-align:center;border-radius:15px;box-shadow:0 5px 18px #102b4e10;border:1px solid #e8edf4;transition:.2s;cursor:pointer}.category:hover{transform:translateY(-5px);border-color:#23649a}.category .icon{font-size:32px;margin-bottom:10px}.category h3{font-size:15px;color:#102b4e}
+.shops-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1100px;margin:auto}.shop-card{background:white;padding:22px;border-radius:14px;box-shadow:0 4px 15px #102b4e14;border:1px solid #e8edf4;text-align:left;display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+.shop-badge{display:inline-block;background:#eaf1f9;color:#23649a;font-size:12px;font-weight:bold;padding:4px 10px;border-radius:20px;margin-bottom:10px;width:fit-content}.shop-card h3{font-size:19px;color:#102b4e;margin-bottom:6px}.shop-address{font-size:13px;color:#718096;margin-bottom:10px}.shop-desc{font-size:14px;color:#4a5568;line-height:1.5;margin-bottom:4px}.call-btn{display:inline-block;text-align:center;background:#102b4e;color:white;text-decoration:none;padding:10px 15px;border-radius:8px;font-size:14px;font-weight:bold;transition:.2s}.call-btn:hover{background:#23649a}
+.photo-gallery{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.photo-gallery img{width:82px;height:72px;object-fit:cover;border-radius:8px;border:1px solid #e3eaf2}.no-photo{font-size:12px;color:#8a98a8}
+.join{background:#eaf1f9;border-radius:18px;padding:35px 20px;max-width:850px;margin:auto;text-align:center}.join h2{color:#102b4e;margin-bottom:8px}.primary-btn,.secondary-btn{margin-top:14px;background:#102b4e;color:white;padding:13px 22px;border:none;border-radius:9px;font-weight:bold;font-size:14px;cursor:pointer}.primary-btn:hover,.secondary-btn:hover{background:#23649a}.secondary-btn{background:#64748b}.primary-btn:disabled,.secondary-btn:disabled{opacity:.6;cursor:not-allowed}
+.panel{max-width:520px;margin:22px auto 0;background:white;padding:22px;border-radius:14px;box-shadow:0 5px 20px #0000000f;text-align:left}.panel h3{text-align:center;color:#102b4e;margin-bottom:14px}.panel input,.panel select,.panel textarea{width:100%;padding:12px;margin-bottom:12px;border:1px solid #cbd5e0;border-radius:8px;font-size:14px;outline:none;background:white}.panel input:focus,.panel select:focus,.panel textarea:focus{border-color:#23649a}.panel textarea{resize:vertical;min-height:80px}.panel .full-button{width:100%;margin-top:0}.button-row{display:flex;gap:10px;flex-wrap:wrap}.button-row button{flex:1;min-width:135px}.hint{font-size:12px;color:#718096;line-height:1.5;margin:4px 0 12px}.status-message{font-size:13px;line-height:1.5;margin:10px 0;padding:10px;border-radius:8px;display:none}.status-message.info{display:block;background:#eaf1f9;color:#17436b}.status-message.success{display:block;background:#e8f7ed;color:#17643a}.status-message.error{display:block;background:#fff0f0;color:#a12626}
+#shopForm textarea{min-height:90px}.owner-panel{max-width:850px;margin:24px auto 0;text-align:left}.owner-panel h3{text-align:center;color:#102b4e;margin-bottom:14px}.owner-shop{background:white;border:1px solid #dce5ef;border-radius:12px;padding:18px;margin-bottom:14px}.owner-shop-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}.owner-shop h4{color:#102b4e;font-size:17px;margin-bottom:5px}.owner-status{font-size:12px;font-weight:bold;border-radius:20px;padding:5px 10px;white-space:nowrap}.pending{background:#fff4d6;color:#805700}.approved{background:#e5f7ec;color:#17643a}.owner-shop p{font-size:13px;color:#64748b;margin:5px 0}.owner-upload{border-top:1px solid #edf1f6;margin-top:12px;padding-top:12px}.owner-upload label{font-size:13px;font-weight:bold;color:#102b4e;display:block;margin-bottom:7px}.owner-upload input{width:100%;font-size:13px;margin-bottom:8px}.owner-upload button{background:#e8bd66;color:#102b4e;border:0;border-radius:8px;padding:10px 14px;font-weight:bold;cursor:pointer}.owner-upload button:disabled{opacity:.6;cursor:not-allowed}.small-note{font-size:12px;color:#718096;line-height:1.5;margin-top:8px}
+footer{background:#102b4e;color:white;text-align:center;padding:25px;font-size:13px;margin-top:30px}footer span{color:#e8bd66}[hidden]{display:none!important}
+@media(max-width:600px){header{justify-content:center;text-align:center}nav{justify-content:center;gap:12px}.hero h1{font-size:28px}.search button{padding:12px 14px}.join{padding:28px 14px}.panel{padding:18px}}
 </style>
 </head>
-
 <body>
-
 <header>
   <div class="logo">NANDALUR <span>CONNECT.</span></div>
   <nav>
-    <a href="#">Home</a>
-    <a href="#categories">Explore</a>
-    <a href="#approved-shops">Shops</a>
-    <a href="#join">Add Shop</a>
+    <a href="#home">Home</a><a href="#categories">Explore</a><a href="#approved-shops">Shops</a><a href="#owner-area">My Shop</a>
   </nav>
 </header>
 
-<div class="hero">
+<div class="hero" id="home">
   <h1>Your Village, <span>Your World.</span></h1>
   <p>Discover shops, services and local businesses in Nandalur.</p>
-
   <div class="search">
-    <input id="searchInput" type="text" placeholder="Search shops, grocery, medical...">
-    <button onclick="searchShops()">Search</button>
+    <input id="searchInput" type="text" placeholder="Search shops, grocery, medical..." aria-label="Search shops">
+    <button type="button" onclick="searchShops()">Search</button>
   </div>
 </div>
 
 <section id="categories">
-  <div class="section-title">
-    <h2>Explore Local Businesses</h2>
-    <p>Tap a category to filter shops around Nandalur.</p>
-  </div>
-
+  <div class="section-title"><h2>Explore Local Businesses</h2><p>Tap a category to filter shops around Nandalur.</p></div>
   <div class="categories">
     <div class="category" onclick="filterByCategory('Grocery')"><div class="icon">🛒</div><h3>Grocery</h3></div>
     <div class="category" onclick="filterByCategory('Clothing')"><div class="icon">👕</div><h3>Clothing</h3></div>
@@ -383,232 +58,438 @@ footer span {
 
 <section id="approved-shops">
   <div class="section-title">
-    <h2 id="shopsHeading">Approved Local Shops</h2>
-    <p>Discover trusted businesses in Nandalur.</p>
-    <button id="resetFilterBtn" onclick="loadApprovedShops()" style="display:none; margin-top:10px; background:#e2e8f0; border:none; padding:6px 14px; border-radius:6px; cursor:pointer; font-size:13px;">Show All Shops</button>
+    <h2 id="shopsHeading">Approved Local Shops</h2><p>Discover trusted businesses in Nandalur.</p>
+    <button id="resetFilterBtn" type="button" onclick="loadApprovedShops()" style="display:none;margin-top:10px;background:#e2e8f0;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px">Show All Shops</button>
   </div>
+  <div id="approvedShops" class="shops-grid"><p style="text-align:center;grid-column:1/-1">Loading shops...</p></div>
+</section>
 
-  <div id="approvedShops" class="shops-grid">
-    <p style="text-align:center; grid-column: 1/-1;">Loading shops...</p>
-  </div>
-</section>  
-  
-<section id="join">
+<section id="owner-area">
   <div class="join">
-    <h2>Own a Shop in Nandalur?</h2>
-    <p>Bring your business online and help local customers find you easily.</p>
-    <button class="primary-btn" onclick="toggleForm()">+ Add Your Shop</button>
+    <h2>Shopkeeper Account</h2><p>Create an account or log in to register and manage your Nandalur shop.</p>
+    <div id="authPanel" class="panel">
+      <h3>Email + Password</h3>
+      <input type="email" id="authEmail" placeholder="Email address" autocomplete="email" required>
+      <input type="password" id="authPassword" placeholder="Password (at least 8 characters)" autocomplete="current-password" minlength="8" required>
+      <div class="button-row">
+        <button class="primary-btn full-button" type="button" id="signUpBtn" onclick="signUpOwner()">Create Account</button>
+        <button class="secondary-btn full-button" type="button" id="loginBtn" onclick="loginOwner()">Login</button>
+      </div>
+      <p class="hint">New account par email confirmation aa sakta hai. Inbox mein Supabase ka email check karo, confirmation link open karo, phir login karo. Phone OTP ki zaroorat nahi hai.</p>
+      <div id="authMessage" class="status-message" role="status" aria-live="polite"></div>
+    </div>
 
-    <form id="shopForm">
+    <div id="signedInPanel" class="panel" hidden>
+      <h3>You're Logged In</h3><p id="signedInEmail" style="text-align:center;color:#526174;font-size:14px;overflow-wrap:anywhere"></p>
+      <div style="text-align:center"><button class="secondary-btn" type="button" onclick="logoutOwner()">Logout</button></div>
+      <div id="accountMessage" class="status-message" role="status" aria-live="polite"></div>
+    </div>
+
+    <button id="addShopButton" class="primary-btn" type="button" onclick="toggleShopForm()" hidden>+ Register Your Shop</button>
+    <form id="shopForm" class="panel" onsubmit="return false" hidden>
       <h3>Register Your Shop</h3>
-      <input type="text" id="shop_name" placeholder="Shop Name *" required>
-      <input type="text" id="owner_name" placeholder="Owner Name *" required>
-      <input type="tel" id="phone" placeholder="Phone / WhatsApp Number *" required>
-      
+      <input type="text" id="shop_name" placeholder="Shop Name *" maxlength="100" required>
+      <input type="text" id="owner_name" placeholder="Owner Name *" maxlength="100" required>
+      <input type="tel" id="phone" placeholder="Phone / WhatsApp Number *" maxlength="20" required>
       <select id="category" required>
-        <option value="">Select Shop Category *</option>
-        <option value="Grocery">Grocery</option>
-        <option value="Clothing">Clothing</option>
-        <option value="Mobile Shops">Mobile Shops</option>
-        <option value="Restaurants">Restaurants</option>
-        <option value="Medical">Medical</option>
-        <option value="Services">Services</option>
+        <option value="">Select Shop Category *</option><option value="Grocery">Grocery</option><option value="Clothing">Clothing</option><option value="Mobile Shops">Mobile Shops</option><option value="Restaurants">Restaurants</option><option value="Medical">Medical</option><option value="Services">Services</option>
       </select>
-
-      <input type="text" id="address" placeholder="Shop Address / Landmark *" required>
-      <textarea id="description" placeholder="What do you sell or offer? (Timings, items, home delivery info...)"></textarea>
-
-      <button type="button" id="submitBtn" onclick="submitShop()">Submit Shop for Approval</button>
+      <input type="text" id="address" placeholder="Shop Address / Landmark *" maxlength="200" required>
+      <textarea id="description" placeholder="What do you sell or offer? (Timings, items, home delivery info...)" maxlength="1000"></textarea>
+      <button class="primary-btn full-button" type="button" id="submitBtn" onclick="submitShop()">Submit Shop for Approval</button>
+      <div id="shopMessage" class="status-message" role="status" aria-live="polite"></div>
+      <p class="hint">Your shop will remain pending until the admin verifies and approves it.</p>
     </form>
+
+    <div id="ownerDashboard" class="owner-panel" hidden>
+      <h3>My Shop Dashboard</h3><div id="ownerShops"><p style="text-align:center;color:#718096">Loading your shops...</p></div>
+      <p class="small-note">Photo upload: JPG, PNG or WebP only. Maximum 5 MB per image and 8 photos per shop. Uploaded photos are public, so share only shop-related images you have permission to publish.</p>
+    </div>
   </div>
 </section>
 
-<footer>
-  <p>© 2026 <span>Nandalur Connect</span>. Built for our community.</p>
-  <p style="margin-top:8px;">Your Village. Your Businesses.</p>
-</footer>
+<footer><p>© 2026 <span>Nandalur Connect</span>. Built for our community.</p><p style="margin-top:8px">Your Village. Your Businesses.</p></footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>  
-  
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const SUPABASE_URL = "https://xknpjgtcvqouwsgugxlu.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_G6l9fOv7h1O0gsgQWeZXKQ_IMFEh3WB";
+'use strict';
 
-const supabaseClient = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_ANON_KEY
-);
+const SUPABASE_URL = 'https://xknpjgtcvqouwsgugxlu.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_G6l9fOv7h1O0gsgQWeZXKQ_IMFEh3WB';
+const PHOTO_BUCKET = 'shop-photos';
+const MAX_PHOTOS_PER_SHOP = 8;
+const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
 
-function toggleForm() {
-  const form = document.getElementById('shopForm');
-  form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
+if (!window.supabase || !window.supabase.createClient) {
+  document.getElementById('approvedShops').textContent = 'Supabase library load nahi hui. Page refresh karke dobara try karo.';
+  throw new Error('Supabase library did not load.');
 }
 
-function renderShops(data, container) {
-  container.innerHTML = "";
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+let currentSession = null;
+let ownerShops = [];
+let dashboardLoadInProgress = false;
 
-  if (!data || data.length === 0) {
-    container.innerHTML = `<p style="text-align:center; grid-column: 1/-1; color:#718096;">No shops found matching your criteria.</p>`;
-    return;
+function showMessage(elementId, message, type = 'info') {
+  const element = document.getElementById(elementId);
+  if (!element) return;
+  element.textContent = message;
+  element.className = `status-message ${type}`;
+}
+function clearMessage(elementId) {
+  const element = document.getElementById(elementId);
+  if (element) { element.textContent = ''; element.className = 'status-message'; }
+}
+function setTextLoading(element, message) {
+  element.replaceChildren();
+  const p = document.createElement('p');
+  p.style.cssText = 'text-align:center;grid-column:1/-1;color:#718096';
+  p.textContent = message;
+  element.appendChild(p);
+}
+function safePhotoUrl(photo) {
+  const url = typeof photo === 'string' ? photo : photo && typeof photo.url === 'string' ? photo.url : '';
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === 'https:' || parsed.protocol === 'http:' ? parsed.href : '';
+  } catch (_) { return ''; }
+}
+function addPhotoGallery(container, photos, shopName) {
+  if (!Array.isArray(photos) || photos.length === 0) {
+    const note = document.createElement('p'); note.className = 'no-photo'; note.textContent = 'No photos added yet.';
+    container.appendChild(note); return;
   }
-
+  photos.slice(0, 4).forEach(photo => {
+    const url = safePhotoUrl(photo);
+    if (!url) return;
+    const image = document.createElement('img');
+    image.src = url; image.alt = `${shopName} photo`; image.loading = 'lazy'; image.referrerPolicy = 'no-referrer';
+    container.appendChild(image);
+  });
+  if (!container.children.length) {
+    const note = document.createElement('p'); note.className = 'no-photo'; note.textContent = 'No valid photos available.';
+    container.appendChild(note);
+  }
+}
+function renderShops(data, container) {
+  container.replaceChildren();
+  if (!Array.isArray(data) || data.length === 0) {
+    const empty = document.createElement('p');
+    empty.style.cssText = 'text-align:center;grid-column:1/-1;color:#718096';
+    empty.textContent = 'No shops found matching your criteria.';
+    container.appendChild(empty); return;
+  }
   data.forEach(shop => {
-    const card = document.createElement("div");
-    card.className = "shop-card";
-
-    const topDiv = document.createElement("div");
-
-    const badge = document.createElement("span");
-    badge.className = "shop-badge";
-    badge.textContent = shop.category;
-
-    const name = document.createElement("h3");
-    name.textContent = shop.shop_name;
-
-    const address = document.createElement("p");
-    address.className = "shop-address";
-    address.textContent = "📍 " + shop.address;
-
-    const description = document.createElement("p");
-    description.className = "shop-desc";
-    description.textContent = shop.description || "Local trusted business in Nandalur.";
-
-    topDiv.append(badge, name, address, description);
-    card.appendChild(topDiv);
-
+    const card = document.createElement('div'); card.className = 'shop-card';
+    const topDiv = document.createElement('div');
+    const badge = document.createElement('span'); badge.className = 'shop-badge'; badge.textContent = shop.category || 'Local Shop';
+    const name = document.createElement('h3'); name.textContent = shop.shop_name || 'Unnamed Shop';
+    const address = document.createElement('p'); address.className = 'shop-address'; address.textContent = '📍 ' + (shop.address || 'Nandalur');
+    const description = document.createElement('p'); description.className = 'shop-desc'; description.textContent = shop.description || 'Local trusted business in Nandalur.';
+    const gallery = document.createElement('div'); gallery.className = 'photo-gallery';
+    addPhotoGallery(gallery, shop.photos, shop.shop_name || 'Shop');
+    topDiv.append(badge, name, address, description, gallery); card.appendChild(topDiv);
     if (shop.phone) {
-      const callLink = document.createElement("a");
-      callLink.className = "call-btn";
-      callLink.href = `tel:${shop.phone}`;
-      callLink.textContent = `📞 Call Shop`;
+      const callLink = document.createElement('a'); callLink.className = 'call-btn';
+      callLink.href = `tel:${String(shop.phone).replace(/[^0-9+]/g, '')}`; callLink.textContent = '📞 Call Shop';
       card.appendChild(callLink);
     }
-
     container.appendChild(card);
   });
 }
 
+const PUBLIC_SHOP_FIELDS = 'shop_id, shop_name, category, address, description, phone, photos';
+
 async function loadApprovedShops() {
-  const container = document.getElementById("approvedShops");
-  document.getElementById("shopsHeading").textContent = "Approved Local Shops";
-  document.getElementById("resetFilterBtn").style.display = "none";
-
-  const { data, error } = await supabaseClient
-    .from("shops")
-    .select("shop_name, category, address, description, phone")
-    .eq("is_approved", true)
-    .order("shop_name");
-
+  const container = document.getElementById('approvedShops');
+  document.getElementById('shopsHeading').textContent = 'Approved Local Shops';
+  document.getElementById('resetFilterBtn').style.display = 'none';
+  setTextLoading(container, 'Loading shops...');
+  const { data, error } = await supabaseClient.from('shops').select(PUBLIC_SHOP_FIELDS).eq('is_approved', true).order('shop_name');
   if (error) {
-    console.error(error);
-    container.innerHTML = `<p style="text-align:center; grid-column: 1/-1; color:red;">Unable to load shops.</p>`;
-    return;
+    console.error('Public shop loading failed:', error);
+    setTextLoading(container, 'Unable to load shops. Please refresh and try again.'); return;
   }
-
   renderShops(data, container);
 }
-
 async function filterByCategory(categoryName) {
-  const container = document.getElementById("approvedShops");
-  document.getElementById("shopsHeading").textContent = `${categoryName} Shops in Nandalur`;
-  document.getElementById("resetFilterBtn").style.display = "inline-block";
-  container.innerHTML = `<p style="text-align:center; grid-column: 1/-1;">Loading ${categoryName} shops...</p>`;
-
-  document.getElementById("approved-shops").scrollIntoView({ behavior: "smooth" });
-
-  const { data, error } = await supabaseClient
-    .from("shops")
-    .select("shop_name, category, address, description, phone")
-    .eq("is_approved", true)
-    .ilike("category", `%${categoryName}%`)
-    .order("shop_name");
-
+  const container = document.getElementById('approvedShops');
+  document.getElementById('shopsHeading').textContent = `${categoryName} Shops in Nandalur`;
+  document.getElementById('resetFilterBtn').style.display = 'inline-block';
+  setTextLoading(container, `Loading ${categoryName} shops...`);
+  document.getElementById('approved-shops').scrollIntoView({ behavior: 'smooth' });
+  const { data, error } = await supabaseClient.from('shops').select(PUBLIC_SHOP_FIELDS)
+    .eq('is_approved', true).ilike('category', `%${categoryName}%`).order('shop_name');
   if (error) {
-    console.error(error);
-    container.innerHTML = `<p style="text-align:center; grid-column: 1/-1; color:red;">Error loading category.</p>`;
-    return;
+    console.error('Category filter failed:', error); setTextLoading(container, 'Error loading this category.'); return;
   }
-
   renderShops(data, container);
 }
-
-async function submitShop() {
-  const submitBtn = document.getElementById("submitBtn");
-  const shop = {
-    shop_name: document.getElementById("shop_name").value.trim(),
-    owner_name: document.getElementById("owner_name").value.trim(),
-    phone: document.getElementById("phone").value.trim(),
-    category: document.getElementById("category").value,
-    address: document.getElementById("address").value.trim(),
-    description: document.getElementById("description").value.trim(),
-    is_approved: false
-  };
-
-  if (!shop.shop_name || !shop.owner_name || !shop.phone || !shop.category || !shop.address) {
-    alert("Please fill all required (*) fields.");
-    return;
-  }
-
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Submitting...";
-
-  const { error } = await supabaseClient
-    .from("shops")
-    .insert([shop]);
-
-  submitBtn.disabled = false;
-  submitBtn.textContent = "Submit Shop for Approval";
-
-  if (error) {
-    alert("Registration failed: " + error.message);
-    console.error(error);
-    return;
-  }
-
-  alert("Thank you! Your shop is submitted and will go live after verification.");
-  document.getElementById("shopForm").reset();
-  document.getElementById("shopForm").style.display = "none";
+function makeSearchTermSafe(value) {
+  return value.replace(/[^a-zA-Z0-9\u0900-\u097F\u0C00-\u0C7F\s_-]/g, ' ').trim().replace(/\s+/g, ' ');
 }
-
 async function searchShops() {
-  const query = document.getElementById("searchInput").value.trim();
-  const container = document.getElementById("approvedShops");
-
-  if (!query) {
-    await loadApprovedShops();
-    return;
-  }
-
-  document.getElementById("shopsHeading").textContent = `Search Results for "${query}"`;
-  document.getElementById("resetFilterBtn").style.display = "inline-block";
-  container.innerHTML = `<p style="text-align:center; grid-column: 1/-1;">Searching shops...</p>`;
-  document.getElementById("approved-shops").scrollIntoView({ behavior: "smooth" });
-
-  const { data, error } = await supabaseClient
-    .from("shops")
-    .select("shop_name, category, address, description, phone")
-    .eq("is_approved", true)
-    .or(`shop_name.ilike.%${query}%,category.ilike.%${query}%,address.ilike.%${query}%,description.ilike.%${query}%`)
-    .order("shop_name");
-
+  const query = makeSearchTermSafe(document.getElementById('searchInput').value.trim());
+  const container = document.getElementById('approvedShops');
+  if (!query) { await loadApprovedShops(); return; }
+  document.getElementById('shopsHeading').textContent = `Search Results for "${query}"`;
+  document.getElementById('resetFilterBtn').style.display = 'inline-block';
+  setTextLoading(container, 'Searching shops...');
+  document.getElementById('approved-shops').scrollIntoView({ behavior: 'smooth' });
+  const pattern = `%${query}%`;
+  const { data, error } = await supabaseClient.from('shops').select(PUBLIC_SHOP_FIELDS).eq('is_approved', true)
+    .or(`shop_name.ilike.${pattern},category.ilike.${pattern},address.ilike.${pattern},description.ilike.${pattern}`)
+    .order('shop_name');
   if (error) {
-    console.error(error);
-    container.innerHTML = `<p style="text-align:center; grid-column: 1/-1; color:red;">Search failed. Please try again.</p>`;
-    return;
+    console.error('Shop search failed:', error); setTextLoading(container, 'Search failed. Please try again.'); return;
   }
-
   renderShops(data, container);
 }
-
-// Enter key dabane par bhi search chale
-document.getElementById("searchInput").addEventListener("keypress", function(e) {
-  if (e.key === "Enter") {
-    searchShops();
-  }
+document.getElementById('searchInput').addEventListener('keydown', event => {
+  if (event.key === 'Enter') searchShops();
 });
 
-loadApprovedShops();
-</script>
+function toggleShopForm() {
+  if (!currentSession || !currentSession.user) {
+    alert('Please create an account or log in first.');
+    document.getElementById('authPanel').scrollIntoView({ behavior: 'smooth' }); return;
+  }
+  const form = document.getElementById('shopForm');
+  form.hidden = !form.hidden;
+  if (!form.hidden) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+function validateCredentials(email, password) {
+  if (!email || !password) return 'Enter your email address and password.';
+  if (password.length < 8) return 'Password kam se kam 8 characters ka hona chahiye.';
+  return '';
+}
+async function signUpOwner() {
+  const email = document.getElementById('authEmail').value.trim();
+  const password = document.getElementById('authPassword').value;
+  const button = document.getElementById('signUpBtn');
+  clearMessage('authMessage');
+  const validation = validateCredentials(email, password);
+  if (validation) { showMessage('authMessage', validation, 'error'); return; }
+  button.disabled = true; button.textContent = 'Creating account...';
+  try {
+    const redirectUrl = window.location.origin + window.location.pathname;
+    const { data, error } = await supabaseClient.auth.signUp({
+      email, password, options: { emailRedirectTo: redirectUrl }
+    });
+    if (error) throw error;
+    if (data.session) {
+      await updateSessionUI(data.session);
+      showMessage('accountMessage', 'Account created. You are now logged in.', 'success');
+    } else {
+      showMessage('authMessage', 'Account request successful. Inbox mein Supabase confirmation email kholo. Link open karne ke baad yahan wapas aakar login karo.', 'success');
+    }
+  } catch (error) {
+    showMessage('authMessage', 'Account create nahi hua: ' + (error.message || 'Unknown error'), 'error');
+  } finally {
+    button.disabled = false; button.textContent = 'Create Account';
+  }
+}
+async function loginOwner() {
+  const email = document.getElementById('authEmail').value.trim();
+  const password = document.getElementById('authPassword').value;
+  const button = document.getElementById('loginBtn');
+  clearMessage('authMessage');
+  if (!email || !password) { showMessage('authMessage', 'Enter your email address and password.', 'error'); return; }
+  button.disabled = true; button.textContent = 'Logging in...';
+  try {
+    const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+    if (error) throw error;
+    await updateSessionUI(data.session);
+    showMessage('accountMessage', 'Login successful. Your shop dashboard is ready.', 'success');
+  } catch (error) {
+    showMessage('authMessage', 'Login nahi hua: ' + (error.message || 'Unknown error'), 'error');
+  } finally {
+    button.disabled = false; button.textContent = 'Login';
+  }
+}
+async function logoutOwner() {
+  const { error } = await supabaseClient.auth.signOut();
+  if (error) { showMessage('accountMessage', 'Logout nahi hua: ' + error.message, 'error'); return; }
+  await updateSessionUI(null);
+}
+async function updateSessionUI(session) {
+  currentSession = session && session.user ? session : null;
+  const loggedIn = Boolean(currentSession);
+  document.getElementById('authPanel').hidden = loggedIn;
+  document.getElementById('signedInPanel').hidden = !loggedIn;
+  document.getElementById('addShopButton').hidden = !loggedIn;
+  document.getElementById('ownerDashboard').hidden = !loggedIn;
+  if (!loggedIn) {
+    ownerShops = [];
+    document.getElementById('shopForm').hidden = true;
+    document.getElementById('shopForm').reset();
+    document.getElementById('signedInEmail').textContent = '';
+    document.getElementById('ownerShops').replaceChildren();
+    return;
+  }
+  document.getElementById('signedInEmail').textContent = currentSession.user.email || 'Signed-in account';
+  await loadOwnerShops();
+}
+async function submitShop() {
+  if (!currentSession || !currentSession.user) {
+    showMessage('shopMessage', 'Please log in before registering a shop.', 'error'); return;
+  }
+  const submitButton = document.getElementById('submitBtn');
+  const shop = {
+    shop_name: document.getElementById('shop_name').value.trim(),
+    owner_name: document.getElementById('owner_name').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    category: document.getElementById('category').value,
+    address: document.getElementById('address').value.trim(),
+    description: document.getElementById('description').value.trim(),
+    user_id: currentSession.user.id,
+    is_approved: false,
+    photos: []
+  };
+  if (!shop.shop_name || !shop.owner_name || !shop.phone || !shop.category || !shop.address) {
+    showMessage('shopMessage', 'Please fill all required (*) fields.', 'error'); return;
+  }
+  submitButton.disabled = true; submitButton.textContent = 'Submitting...';
+  try {
+    const { error } = await supabaseClient.from('shops').insert([shop]);
+    if (error) throw error;
+    document.getElementById('shopForm').reset();
+    document.getElementById('shopForm').hidden = true;
+    showMessage('accountMessage', 'Thank you! Your shop was submitted and is waiting for admin approval.', 'success');
+    await loadOwnerShops();
+  } catch (error) {
+    console.error('Shop registration failed:', error);
+    showMessage('shopMessage', 'Registration failed: ' + (error.message || 'Unknown error'), 'error');
+  } finally {
+    submitButton.disabled = false; submitButton.textContent = 'Submit Shop for Approval';
+  }
+}
+async function loadOwnerShops() {
+  if (!currentSession || !currentSession.user || dashboardLoadInProgress) return;
+  dashboardLoadInProgress = true;
+  const container = document.getElementById('ownerShops');
+  setTextLoading(container, 'Loading your shops...');
+  try {
+    const { data, error } = await supabaseClient.from('shops')
+      .select('shop_id, shop_name, owner_name, category, address, phone, is_approved, photos')
+      .eq('user_id', currentSession.user.id).order('shop_name');
+    if (error) throw error;
+    ownerShops = Array.isArray(data) ? data : [];
+    renderOwnerShops();
+  } catch (error) {
+    console.error('Owner shop loading failed:', error);
+    setTextLoading(container, 'Could not load your shops. Please refresh and try again.');
+  } finally {
+    dashboardLoadInProgress = false;
+  }
+}
+function renderOwnerShops() {
+  const container = document.getElementById('ownerShops');
+  container.replaceChildren();
+  if (ownerShops.length === 0) {
+    const note = document.createElement('p');
+    note.style.cssText = 'text-align:center;color:#718096;background:white;padding:18px;border-radius:10px';
+    note.textContent = 'You have not registered a shop yet. Tap “Register Your Shop” to get started.';
+    container.appendChild(note); return;
+  }
+  ownerShops.forEach(shop => {
+    const card = document.createElement('div'); card.className = 'owner-shop';
+    const top = document.createElement('div'); top.className = 'owner-shop-top';
+    const details = document.createElement('div');
+    const name = document.createElement('h4'); name.textContent = shop.shop_name || 'Unnamed Shop';
+    const category = document.createElement('p'); category.textContent = shop.category || '';
+    details.append(name, category);
+    const status = document.createElement('span');
+    status.className = 'owner-status ' + (shop.is_approved ? 'approved' : 'pending');
+    status.textContent = shop.is_approved ? 'Approved' : 'Pending approval';
+    top.append(details, status);
+    const address = document.createElement('p'); address.textContent = '📍 ' + (shop.address || '');
+    const gallery = document.createElement('div'); gallery.className = 'photo-gallery';
+    addPhotoGallery(gallery, shop.photos, shop.shop_name || 'Shop');
+    const uploadWrap = document.createElement('div'); uploadWrap.className = 'owner-upload';
+    const label = document.createElement('label'); label.textContent = 'Add shop photos';
+    const input = document.createElement('input'); input.type = 'file';
+    input.accept = 'image/jpeg,image/png,image/webp'; input.multiple = true; input.dataset.shopId = shop.shop_id;
+    const uploadButton = document.createElement('button'); uploadButton.type = 'button';
+    uploadButton.textContent = 'Upload Selected Photos';
+    uploadButton.addEventListener('click', () => uploadShopPhotos(shop.shop_id, input, uploadButton));
+    const uploadStatus = document.createElement('p'); uploadStatus.className = 'small-note';
+    uploadStatus.id = `upload-status-${shop.shop_id}`;
+    uploadWrap.append(label, input, uploadButton, uploadStatus);
+    card.append(top, address, gallery, uploadWrap); container.appendChild(card);
+  });
+}
+async function uploadShopPhotos(shopId, input, button) {
+  if (!currentSession || !currentSession.user) { alert('Please log in again before uploading photos.'); return; }
+  const files = Array.from(input.files || []);
+  const status = document.getElementById(`upload-status-${shopId}`);
+  if (!files.length) { status.textContent = 'Pehle one or more photos select karo.'; return; }
+  if (files.length > 5) { status.textContent = 'Ek baar mein maximum 5 photos select karo.'; return; }
+  const shop = ownerShops.find(item => String(item.shop_id) === String(shopId));
+  if (!shop) { status.textContent = 'Shop not found. Refresh and try again.'; return; }
+  const oldPhotos = Array.isArray(shop.photos) ? shop.photos : [];
+  if (oldPhotos.length + files.length > MAX_PHOTOS_PER_SHOP) {
+    status.textContent = `Is shop ke liye total ${MAX_PHOTOS_PER_SHOP} photos tak allowed hain.`; return;
+  }
+  const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+  for (const file of files) {
+    if (!allowedTypes.includes(file.type)) { status.textContent = 'Sirf JPG, PNG ya WebP images upload karo.'; return; }
+    if (file.size > MAX_IMAGE_BYTES) { status.textContent = 'Har image 5 MB ya usse chhoti honi chahiye.'; return; }
+  }
+  button.disabled = true; button.textContent = 'Uploading...'; status.textContent = 'Photos upload ho rahi hain...';
+  const uploadedPaths = [];
+  try {
+    const newPhotos = [...oldPhotos];
+    for (const file of files) {
+      const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_').slice(-100);
+      const uniqueName = `${crypto.randomUUID()}-${safeName}`;
+      const path = `${currentSession.user.id}/${shopId}/${uniqueName}`;
+      const { error: uploadError } = await supabaseClient.storage.from(PHOTO_BUCKET)
+        .upload(path, file, { cacheControl: '3600', contentType: file.type, upsert: false });
+      if (uploadError) throw uploadError;
+      uploadedPaths.push(path);
+      const { data: publicData } = supabaseClient.storage.from(PHOTO_BUCKET).getPublicUrl(path);
+      newPhotos.push({ path, url: publicData.publicUrl });
+    }
 
+    // The database update is owner-scoped by both shop_id and the signed-in user_id.
+    const { data: updatedRows, error: updateError } = await supabaseClient.from('shops')
+      .update({ photos: newPhotos }).eq('shop_id', shopId).eq('user_id', currentSession.user.id)
+      .select('shop_id');
+    if (updateError) throw updateError;
+    if (!updatedRows || updatedRows.length !== 1) throw new Error('Shop photo list could not be saved. Check that you own this shop.');
+
+    input.value = '';
+    status.textContent = 'Photos successfully uploaded!';
+    await loadOwnerShops();
+    await loadApprovedShops();
+  } catch (error) {
+    console.error('Photo upload/save failed:', error);
+    if (uploadedPaths.length) {
+      const { error: cleanupError } = await supabaseClient.storage.from(PHOTO_BUCKET).remove(uploadedPaths);
+      if (cleanupError) console.error('Could not clean up uploaded files:', cleanupError);
+    }
+    status.textContent = 'Photo upload failed: ' + (error.message || 'Unknown error');
+  } finally {
+    button.disabled = false; button.textContent = 'Upload Selected Photos';
+  }
+}
+async function initializePage() {
+  await loadApprovedShops();
+  const { data, error } = await supabaseClient.auth.getSession();
+  if (error) {
+    console.error('Could not restore login session:', error);
+    await updateSessionUI(null); return;
+  }
+  await updateSessionUI(data.session);
+}
+// Keep the dashboard in sync after email confirmation, login refresh, or logout.
+supabaseClient.auth.onAuthStateChange((_event, session) => {
+  currentSession = session && session.user ? session : null;
+  window.setTimeout(() => { updateSessionUI(session); }, 0);
+});
+initializePage();
+</script>
 </body>
 </html>
+
